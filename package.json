@@ -1,0 +1,24 @@
+{
+	"name": "openchat",
+	"private": true,
+	"scripts": {
+		"dev:frontend": "pnpm --filter frontend dev",
+		"dev:workers": "pnpm --filter workers dev",
+		"dev": "pnpm --filter workers dev & pnpm --filter frontend dev",
+		"gen": "rm -rf packages/frontend/app/gen packages/workers/src/gen && buf generate",
+		"format:frontend": "biome format --write packages/frontend",
+		"format:workers": "biome format --write packages/workers",
+		"format": "biome format --write .",
+		"build:frontend": "pnpm --filter frontend build",
+		"fly": "pnpm --filter frontend build && pnpm --filter workers run deploy"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@bufbuild/protoc-gen-es": "^2.2.3",
+		"typescript": "^5.7.3"
+	},
+	"dependencies": {
+		"@bufbuild/protobuf": "^2.2.3",
+		"@connectrpc/connect": "^2.0.2"
+	}
+}
