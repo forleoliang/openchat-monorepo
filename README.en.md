@@ -62,11 +62,6 @@ OpenChat isn't just another AI chat application. It's built with a modern tech s
 - ⚡ **Real-time Responses**: Fast, responsive interface with modern React components
 - 📲 **Three-Platform Sync**: Seamlessly switch between web, mobile, and desktop with real-time chat history synchronization
 
-## 📥 Downloads
-
-- [Android APK Package](https://cdn.bytepacker.com/05eb5d86-a1a1-4076-bf63-5dd810288e25/app-universal-release.apk)
-- [Mac (Apple Silicon) DMG Package](https://cdn.bytepacker.com/2f02716a-d9bf-43db-b511-4fd0fd810813/openchat_0.1.0_aarch64.dmg)
-
 ## Tech Stack
 
 ### Frontend
@@ -114,7 +109,7 @@ OpenChat isn't just another AI chat application. It's built with a modern tech s
 3. Set up environment variables:
    ```bash
    # Create environment files based on examples
-   cp packages/workers/.env.example packages/workers/.env
+   cp packages/workers/.dev.vars.example packages/workers/.dev.vars
    cp packages/frontend/.env.example packages/frontend/.env
    ```
 
@@ -150,9 +145,20 @@ pnpm fly
 ├── proto                # Protocol Buffer definitions
 ```
 
+## Downloads
+
+- [Android APK Package](https://cdn.bytepacker.com/05eb5d86-a1a1-4076-bf63-5dd810288e25/app-universal-release.apk)
+- [Mac (Apple Silicon) DMG Package](https://cdn.bytepacker.com/2f02716a-d9bf-43db-b511-4fd0fd810813/openchat_0.1.0_aarch64.dmg)
+
 ## Contributing
 
 Contributions are welcome! Feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 

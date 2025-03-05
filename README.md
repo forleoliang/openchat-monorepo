@@ -109,7 +109,7 @@ OpenChat 不只是另一个 AI 聊天应用。它采用现代技术栈构建，�
 3. 设置环境变量:
    ```bash
    # 基于示例创建环境文件
-   cp packages/workers/.env.example packages/workers/.env
+   cp packages/workers/.dev.vars.example packages/workers/.dev.vars
    cp packages/frontend/.env.example packages/frontend/.env
    ```
 
