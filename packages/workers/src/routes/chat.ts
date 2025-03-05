@@ -1,5 +1,6 @@
 import { Code, ConnectError, type ConnectRouter } from "@connectrpc/connect";
 import { create } from "@bufbuild/protobuf";
+import { load } from "cheerio";
 import type {
 	ChatCompletionContentPart,
 	ChatCompletionMessageParam,
@@ -180,10 +181,39 @@ export function getChatRoutes(router: ConnectRouter) {
 								},
 							],
 						});
+						const resultsWithContent: any[] = [];
+						// Only fetch content for the first 3 results
+						const resultsToFetch = results.slice(0, 3);
+						
+						// First, add all results to resultsWithContent with empty content
+						for (const result of results) {
+							resultsWithContent.push({
+								...result,
+								content: "",
+							});
+						}
+						
+						// Then fetch and update content only for the first 3 results
+						for (let i = 0; i < resultsToFetch.length; i++) {
+							const result = resultsToFetch[i];
+							try {
+								const controller = new AbortController();
+								const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 seconds timeout
+								const response = await fetch(result.url, {
+									signal: controller.signal,
+								});
+								clearTimeout(timeoutId);
+								const $ = load(await response.text());
+								// Update the content in the corresponding result
+								resultsWithContent[i].content = $("body").text();
+							} catch (error) {
+								console.error("error: ", error);
+							}
+						}
 						messages.push({
 							role: "tool",
 							tool_call_id: id,
-							content: JSON.stringify(results),
+							content: JSON.stringify(resultsWithContent),
 						});
 					}
 					if (name === "browser_url") {
