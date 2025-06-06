@@ -165,7 +165,7 @@ pnpm fly
 我们还在考虑使用哪种开源许可证，敬请期待！如果您有任何建议或想法，欢迎分享。
 
 ---
-
+[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
 ## ⚠️ 警告
 
 **此项目目前正在积极开发中。** 功能可能会发生变化，API可能不稳定，并且可能存在错误。在生产环境中使用需自行承担风险。
